@@ -1,1 +1,6 @@
 https://www.w3schools.com/python/pandas/pandas_cleaning.asp
+
+Type following command
+
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/msncps/python/main/data.csv')
