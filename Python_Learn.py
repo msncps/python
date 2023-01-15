@@ -20,5 +20,32 @@ dataset['Entry Date']=pd.to_datetime(dataset['Entry Date']) #-changing the data 
 dataset.head(100)
 dataset.dtypes #- recheck if the data type changed or not
 #--
+dataset['Calories'] = round(dataset['Calories'], 0) #- we rounded the value
+dataset.head(100)
 #--
+dataset['Calories'].fillna(0,inplace=True) #fillna("No College", inplace = True) #-null replace with 0
+dataset.head(100)
 #--
+dataset['Calories']=dataset.astype({'Calories':'int64'}) #-we convertig them to int
+dataset.head(100)
+#--creating different TBL called TBL True for NaN values
+TBL = pd.isnull(dataset['Calories'])
+dataset[TBL]
+TBL = pd.notnull(dataset['Calories'])
+dataset[TBL]
+dataset
+dataset = dataset.dropna(axis = 0, how ='any')
+dataset
+#dataset[TBL]
+#dataset
+#dataset = dataset.dropna(axis = 0, how ='any')
+#dataset
+
+dataset2 = pd.read_csv('data2.csv')
+
+dataset2 = dataset2.interpolate(method ='linear', limit_direction ='forward')
+#---------------------
+#---------------------
+dataset2 = dataset2.interpolate(method ='linear', limit_direction ='backward')
+dataset2
+dataset
